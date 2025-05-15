@@ -26,6 +26,16 @@ SECRET_KEY = 'django-insecure-37rw2c6-ui(2qetb^hdea8nk76%kzb==*82+1bebfnn@oh$j0@
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+# 部署到EC2上需要修改 成ALLOWED_HOSTS = ['your-ec2-public-ip', 'your-domain.com']
+
+#邮箱配置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'yao185542@gmail.com'
+EMAIL_HOST_PASSWORD = 'app_password'  #需要申请替换
+DEFAULT_FROM_EMAIL = 'PayPay Support <yao185542@gmail.com>'
 
 
 # Application definition
