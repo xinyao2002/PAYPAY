@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 
+import pymysql
+pymysql.install_as_MySQLdb()
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +29,7 @@ SECRET_KEY = 'django-insecure-37rw2c6-ui(2qetb^hdea8nk76%kzb==*82+1bebfnn@oh$j0@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'paypay-env.eba-5qtux3ev.us-east-2.elasticbeanstalk.com']
 # 部署到EC2上需要修改 成ALLOWED_HOSTS = ['your-ec2-public-ip', 'your-domain.com']
 
 #邮箱配置
@@ -85,8 +89,12 @@ WSGI_APPLICATION = 'paypay_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Paypay',  # 数据库名
+        'USER': 'admin',  # 用户名
+        'PASSWORD': 'Paypay123',
+        'HOST': 'mysql-paypay.czekgscqsz4j.us-east-2.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
