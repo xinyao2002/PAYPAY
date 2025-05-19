@@ -29,8 +29,7 @@ SECRET_KEY = 'django-insecure-37rw2c6-ui(2qetb^hdea8nk76%kzb==*82+1bebfnn@oh$j0@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'paypay-env.eba-5qtux3ev.us-east-2.elasticbeanstalk.com']
-# 部署到EC2上需要修改 成ALLOWED_HOSTS = ['your-ec2-public-ip', 'your-domain.com']
+ALLOWED_HOSTS = ['*']  # 允许所有主机访问，仅用于开发测试
 
 #邮箱配置
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -58,14 +57,15 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+    
 ]
-
+CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'paypay_backend.urls'
