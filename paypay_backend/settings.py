@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-37rw2c6-ui(2qetb^hdea8nk76%kzb==*82+1bebfnn@oh$j0@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['paypay-env.eba-5qtux3ev.us-east-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'paypay-env.eba-5qtux3ev.us-east-2.elasticbeanstalk.com']
 # 部署到EC2上需要修改 成ALLOWED_HOSTS = ['your-ec2-public-ip', 'your-domain.com']
 
 #邮箱配置
