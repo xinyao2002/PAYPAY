@@ -39,6 +39,15 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'yao185542@gmail.com'
 EMAIL_HOST_PASSWORD = 'app_password'  #需要申请替换
 DEFAULT_FROM_EMAIL = 'PayPay Support <yao185542@gmail.com>'
+# 配置 Channels redis
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],  # 本地 Redis 端口
+        },
+    },
+}
 
 
 # Application definition
@@ -51,6 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'rest_framework',
     'corsheaders',
     'billing',
 ]
@@ -87,6 +97,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'paypay_backend.wsgi.application'
+ASGI_APPLICATION = "paypay_backend.asgi.application"
 
 
 # Database
