@@ -89,7 +89,8 @@ def forgot_password(request):
             # settings.py
             #FRONTEND_BASE_URL = "https://paypay.vercel.app"  Next.js 部署地址 默认用Frontend_Base_URL，没有的话用localhost
 
-            frontend_url = getattr(settings, 'FRONTEND_BASE_URL', 'http://localhost:3000')
+            #frontend_url = getattr(settings, 'FRONTEND_BASE_URL', 'http://localhost:3000')
+            frontend_url = 'http://localhost:3000' 
             reset_link = f"{frontend_url}/reset-password/{uidb64}/{token}/"
 
             # 发送邮件 后续需要配置发送者邮箱 见settings.py
